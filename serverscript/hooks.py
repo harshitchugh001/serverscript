@@ -133,23 +133,31 @@ app_license = "mit"
 # Scheduled Tasks
 # ---------------
 
-# scheduler_events = {
+scheduler_events = {
 # 	"all": [
 # 		"serverscript.tasks.all"
 # 	],
 # 	"daily": [
 # 		"serverscript.tasks.daily"
 # 	],
-# 	"hourly": [
-# 		"serverscript.tasks.hourly"
-# 	],
+	"hourly": [
+		"serverscript.serverscript.doctype.myschedular.myschedular.update_counter"
+	],
 # 	"weekly": [
 # 		"serverscript.tasks.weekly"
 # 	],
 # 	"monthly": [
 # 		"serverscript.tasks.monthly"
 # 	],
-# }
+    # "cron": {
+    #     "*/30 * * * *": [
+    #         "serverscript.serverscript.doctype.myschedular.myschedular.update_counter"
+    #     ]
+    # }
+
+}
+
+
 
 # Testing
 # -------
@@ -227,3 +235,13 @@ app_license = "mit"
 # 	"Logging DocType Name": 30  # days to retain logs
 # }
 
+overwrite_whitelisted_methods={
+    "serverscript.api.requests":"serverscript.api.requests",
+    "serverscript.api.get_users":"serverscript.api.get_users",
+    "serverscript.api.add_users":"serverscript.api.add_user",
+    
+}
+
+fixtures = [
+    {"dt": "DocType", "filters": [["name", "in", ["Employee"]]]}
+]
