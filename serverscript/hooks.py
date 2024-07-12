@@ -122,13 +122,20 @@ app_license = "mit"
 # ---------------
 # Hook on document methods and events
 
-# doc_events = {
-# 	"*": {
-# 		"on_update": "method",
-# 		"on_cancel": "method",
-# 		"on_trash": "method"
-# 	}
-# }
+doc_events = {
+	# "*": {
+	# 	"on_update": "method",
+	# 	"on_cancel": "method",
+	# 	"on_trash": "method"
+	# },
+    "Customer":{
+        "validate": "serverscript.serverscript.coustomization.coustom.validate"
+    },
+    
+    "Purchase Order": {
+        "on_submit": "serverscript.serverscript.coustomization.purchaseorder.send_notification_email"
+    }
+}
 
 # Scheduled Tasks
 # ---------------
